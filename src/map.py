@@ -1,6 +1,8 @@
 from mapcolor import MapColor
 
-mapcolor = MapColor(15)
-mapcolor.draw()
-for i in mapcolor.map:
-    print i
+for i in range(0,5):
+    mapcolor = MapColor(100)
+    mapcolor.backtrack(True)
+    mapcolor.draw()
+#for i in mapcolor.map:
+#    print i
