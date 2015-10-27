@@ -132,14 +132,14 @@ class MapColor:
 
 
     def select_unassigned_variable(self, map, efficient):
-        efficient = False
         if efficient:
             pq = Queue.PriorityQueue()
             for variable in map:
                 if self.is_assigned(variable) is False:
-                    print (-1)*len(variable.domain)
                     pq.put(((-1)*len(variable.domain), variable))
+                    # Negative such that smallest domain -> most constrained -> m c variable will have highest priority
             return pq.get()[1]
+            # get variable, not priority value, in tuple
         else:
             for variable in map:
                 if self.is_assigned(variable) is False:
